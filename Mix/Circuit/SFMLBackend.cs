@@ -111,7 +111,7 @@ namespace Skira
             if (windowHeight > (proportion.Y / proportion.X) * windowWidth)
             {
                 width = windowWidth;
-                height = width * (proportion.Y / proportion.X);
+                height = width * (proportion.X / proportion.Y);
                 difference = windowHeight - height;
                 half = difference / 2d;
                 scale = height / windowHeight;
@@ -122,7 +122,7 @@ namespace Skira
             else
             {
                 height = windowHeight;
-                width = height * (proportion.X / proportion.Y);
+                width = height * (proportion.Y / proportion.X);
                 difference = windowWidth - width;
                 half = difference / 2d;
                 scale = width / windowWidth;
@@ -193,7 +193,7 @@ namespace Skira
         }
         private void BackendKeyPressed(object sender, KeyEventArgs keyEventArgs)
         {
-            KeyPressed?.Invoke((Key)keyEventArgs.Code, keyEventArgs.Alt, keyEventArgs.Control, keyEventArgs.Shift, keyEventArgs.System);
+            KeyPressed?.Invoke((Key)keyEventArgs.Code, keyEventArgs.Alt, keyEventArgs.Control, keyEventArgs.Shift);
             /*
             RenderWindow window = (RenderWindow)sender;
             if (keyEventArgs.Code == Keyboard.Key.Escape)

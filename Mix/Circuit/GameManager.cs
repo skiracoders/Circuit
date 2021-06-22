@@ -31,18 +31,18 @@ namespace Skira
             world = new World(20u, 10u);
             CreatePlayer(5u, 10u);
             camera = new Camera(world, 32d, 3d, 0d, 0d);
-            backend = new SFMLBackend("Circuit", 1024u, 512u);
+            backend = new RaylibBackend("Circuit", 1024u, 512u);
             backend.LoadSprites();
             backend.Scrolled += Scrolled;
             backend.KeyPressed += KeyPressed;
             backend.Update += Update;
         }
-        private SFMLBackend backend;
+        private RaylibBackend backend;
         private World world;
         private Camera camera;
         private ImageManager imageManager;
         private Player player;
-        public SFMLBackend Backend
+        public RaylibBackend Backend
         {
             get => backend;
         }
@@ -120,9 +120,9 @@ namespace Skira
                 backend.AdjustView();
             }
             */
-            backend.RequestDrawing();
+            //backend.RequestDrawing();
         }
-        private void KeyPressed(Key key, bool alt, bool control, bool shift, bool system)
+        private void KeyPressed(Key key, bool alt, bool control, bool shift)
         {
             switch (key)
             {
